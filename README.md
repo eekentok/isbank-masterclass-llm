@@ -47,11 +47,9 @@ Bir banka chatbotu veya self-servis yardım sistemi düşünün:
    - Uzun metinleri parçalara ayır.
 4. **Embedding (Groq API)**
    - Vektör temsillerini oluştur.
-5. **Vector Index (FAISS)**
-   - Benzerlik arama için indexle.
-6. **Retriever (Similarity Search)**
+5. **Retriever (Similarity Search)**
    - Kullanıcı sorusuna en yakın chunk’ı bul.
-7. **Generator (Groq ChatCompletion)**
+6. **Generator (Groq ChatCompletion)**
    - Son yanıtı üret.
 
 ---
@@ -125,27 +123,30 @@ Bir banka chatbotu veya self-servis yardım sistemi düşünün:
 
 ---
 
-### 5️⃣ Indexleme
-- FAISS ile embedding vektörlerinden bir index oluştur.
-- Hızlı nearest neighbor search sağlar.
+### 5️⃣ Retrieval (Arama)
+- Kullanıcının sorusunu embed edin.
+- Veri içindeki embeddinglerle karşılaştırıp en yakın chunk’ı bulun.
+- Yanıt üretme için bu chunk’ı LLM’e vereceksiniz.
 
-✅ Çıktı: `data/index.faiss`
+✅ **Temel Yöntem:**
+
+- Cosine similarity kullanarak Python döngüsü ile en yakın chunk’ı seçin.
+- Küçük veri setleri için yeterli ve anlaşılır.
+
+✅ **İsteğe Bağlı (Opsiyonel):**
+
+- Daha gelişmiş bir çözüm için FAISS kütüphanesini entegre edebilirsiniz.
+- FAISS → Büyük veri setlerinde embedding aramasını çok hızlı hale getirir.
 
 ---
 
-### 6️⃣ Retrieval (Arama)
-- Kullanıcı sorusunu embed et.
-- Index üzerinden en yakın chunk’ı bul.
-
----
-
-### 7️⃣ Generation (Yanıt Üretme)
+### 6️⃣ Generation (Yanıt Üretme)
 - En iyi chunk’ı prompt’a ekle.
 - Groq ChatCompletion API → doğal dilde yanıt.
 
 ---
 
-### 8️⃣ Otomasyon
+### 7️⃣ Otomasyon
 - Bash script ile tüm pipeline’ı çalıştır.
 - Cronjob ile belirli aralıklarla veri güncelle.
 
