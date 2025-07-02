@@ -36,7 +36,7 @@ Bir banka chatbotu veya self-servis yardım sistemi düşünün:
 
 ---
 
-## ⚙️ Mimarinin İş Akışı
+## ⚙️ Mimari
 
 1. **Web Scraping**
    - Halka açık içerikleri çek.
