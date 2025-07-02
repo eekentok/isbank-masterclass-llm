@@ -12,7 +12,6 @@ Bu proje, **halka açık bankacılık/finans içeriklerini** toplayıp temizleye
 - **Temizlik**: HTML ve gereksiz karakterleri temizle.
 - **Chunking**: Uzun metinleri anlamlı parçalara böl.
 - **Embedding**: Groq API ile vektör temsillerini oluştur.
-- **Indexleme**: FAISS ile vektör arama motoru kur.
 - **Retrieval**: Kullanıcının sorusuna en yakın chunk’ı bul.
 - **Generation**: Groq LLM ile yanıt üret.
 
